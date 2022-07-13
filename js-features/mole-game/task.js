@@ -3,8 +3,6 @@ const lost = document.getElementById('lost');
 for (let i = 1; i < 10; i++) { 
     let a = 'hole' + i;
     let hole = document.getElementById(a);
-    //alert(a);
-    console.log(hole);
     hole.onclick =  (() => {
         if (hole.className.includes( 'hole_has-mole' )) {
             dead.textContent++;} else {
