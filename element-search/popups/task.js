@@ -1,18 +1,15 @@
-const modal__active = document.getElementById('modal_main');
-const modal__success = document.getElementById('modal_success');
-const modal__close = document.getElementsByClassName('modal__close');
+let modalActive = document.getElementById('modal_main');
+let modalSuccess = document.getElementById('modal_success');
+let modalCloseTimes = Array.from(document.getElementsByClassName('modal__close_times'));
+let showSuccess = document.querySelector('.show-success');
 
-modal__active.className = 'modal modal_active';
-let closePopup = Array.from(modal__close);
-
-closePopup.forEach((itm) => {
-    itm.onclick = (() => {
-        if (itm == closePopup[1]) {
-            modal__success.style.display = 'flex';
-        }
-        if (itm == closePopup[2]) {
-            modal__success.style.display = 'none';
-        }
-        modal__active.style.display = 'none';
+modalActive.className = 'modal modal_active';
+modalCloseTimes.forEach((item) => {
+    item.onclick = (() => {
+        item.parentElement.parentElement.className = 'modal';
     });
+});
+showSuccess.onclick = (() => {
+    modalActive.className = 'modal';
+    modalSuccess.className = 'modal modal_active';
 });
